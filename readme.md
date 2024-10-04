@@ -27,7 +27,7 @@ The application also includes a scoring system that accumulates points based on 
 ## Project Structure
 
 ```
-world_of_games/
+world-of-game/
 ├── app.py                      # Main application logic
 ├── main.py                     # Entry point to start the game
 ├── utils.py                    # Utility functions and shared variables
@@ -67,12 +67,6 @@ world_of_games/
    pip install -r requirements.txt
    ```
 
-   **Note**: Create a `requirements.txt` file with the following content:
-
-   ```
-   Flask
-   ```
-
 ## Usage
 
 ### Running the Game Application
@@ -83,15 +77,7 @@ To start the game application, run:
 python main.py
 ```
 
-### Running the Score Server
-
-To start the Flask server that displays your current score, run:
-
-```bash
-python main_score.py
-```
-
-Then navigate to [http://localhost:5000/](http://localhost:5000/) in your web browser to view your score.
+Navigate to [http://localhost:5000/](http://localhost:5000/) in your web browser to view your score.
 
 ### Playing the Games
 
@@ -151,18 +137,6 @@ Then navigate to [http://localhost:5000/](http://localhost:5000/) in your web br
 - **Packages**:
    - `Flask`: For running the score server.
 - **Operating System**: Cross-platform (Windows, macOS, Linux)
-
-## Project Dependencies
-
-- **Flask**: A lightweight WSGI web application framework.
-
-  Install Flask using:
-
-  ```bash
-  pip install Flask
-  ```
-
-- **Additional Modules**: All other modules used are part of the Python Standard Library.
 
 ## License
 
