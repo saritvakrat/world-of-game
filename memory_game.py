@@ -2,7 +2,7 @@
 
 import random
 import time
-from utils import screen_cleaner, BAD_RETURN_CODE
+from utils import screen_cleaner
 
 
 def generate_sequence(difficulty):
@@ -34,6 +34,4 @@ def play(difficulty):
     time.sleep(0.7)
     screen_cleaner()
     user_sequence = get_list_from_user(difficulty)
-    if user_sequence == BAD_RETURN_CODE:
-        return False
     return is_list_equal(sequence, user_sequence)

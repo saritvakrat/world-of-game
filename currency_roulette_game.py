@@ -19,7 +19,12 @@ def get_exchange_rate():
 def get_money_interval(difficulty, amount):
     exchange_rate = get_exchange_rate()
     if exchange_rate is None:
-        return None  # Handle the error in compare_results()
+        return None
+    if not (1 <= difficulty <= 5):
+        raise ValueError("Difficulty level must be between 1 and 5.")
+    if not (1 <= amount <= 100):
+        raise ValueError("Amount must be between 1 and 100.")
+
     total_value = amount * exchange_rate
     margin = 10 - difficulty
     lower_bound = total_value - margin
@@ -28,7 +33,6 @@ def get_money_interval(difficulty, amount):
 
 
 def get_guess_from_user(amount):
-    """Prompts the user to guess the ILS value of the given USD amount."""
     while True:
         guess = input(f"Guess the ILS value of {amount} USD: ")
         try:

@@ -1,7 +1,8 @@
 # main_score.py
 
 from flask import Flask
-from utils import SCORES_FILE_NAME
+from utils import SCORES_FILE_NAME, GAME_RESULTS_FILE
+import os
 
 app = Flask(__name__)
 
@@ -9,9 +10,22 @@ app = Flask(__name__)
 @app.route('/')
 def score_server():
     try:
-        # Attempt to read the score from Scores.txt
         with open(SCORES_FILE_NAME, 'r') as file:
             score = file.read()
+
+        # Read game summaries from GameResults.txt
+        if os.path.exists(GAME_RESULTS_FILE):
+            with open(GAME_RESULTS_FILE, 'r') as file:
+                summaries = file.readlines()
+            # Reverse to show the latest games first
+            summaries = summaries[::-1]
+        else:
+            summaries = ["No games played yet.\n"]
+
+        # Generate HTML for game summaries on top of the scores HTML
+        summaries_html = ''
+        for summary in summaries:
+            summaries_html += f"<li>{summary.strip()}</li>"
 
         html = f"""<!DOCTYPE html>
 <html lang="en">
@@ -37,6 +51,13 @@ def score_server():
     <body>
         <h1>The Score is:</h1>
         <div id="score">{score}</div>
+        
+         <div id="game-summaries">
+            <h2>Game Summaries:</h2>
+            <ul>
+                {summaries_html}
+            </ul>
+        </div>
     </body>
 </html>"""
         return html

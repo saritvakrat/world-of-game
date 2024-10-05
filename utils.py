@@ -5,10 +5,10 @@ import time
 
 SCORES_FILE_NAME = "Scores.txt"
 BAD_RETURN_CODE = -1
+GAME_RESULTS_FILE = "GameResults.txt"
 
 
 def screen_cleaner():
-    time.sleep(0.5)
     if os.name == 'nt':
         os.system('cls')
     else:

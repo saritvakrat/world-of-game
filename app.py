@@ -6,7 +6,8 @@ from memory_game import play as play_memory_game
 from score import add_score
 from threading import Thread
 from main_score import app as flask_app
-from utils import screen_cleaner, SCORES_FILE_NAME
+from utils import screen_cleaner, SCORES_FILE_NAME, GAME_RESULTS_FILE
+from datetime import datetime
 
 
 def welcome(username):
@@ -21,7 +22,7 @@ def clear_score_file():
 
 def start_play():
     games = [
-        "Memory Game - a sequence of numbers will appear for 1 second and you have to guess it back.",
+        "Memory Game - a sequence of numbers will appear for 0.7 milli seconds and you have to guess it back.",
         "Guess Game - guess a number and see if you chose like the computer.",
         "Currency Roulette - try and guess the value of a random amount of USD in ILS"
     ]
@@ -55,8 +56,8 @@ def start_play():
     else:
         print("Sorry, you lost. Better luck next time!")
 
-    # Do not clear the score immediately after the game ends
-    # The score will be cleared before starting a new game
+    # Record the game summary
+    record_game_summary(game_name, difficulty, result)
 
 
 def get_valid_input(prompt, min_value, max_value):
@@ -70,6 +71,14 @@ def get_valid_input(prompt, min_value, max_value):
                 print(f"Invalid input. Please enter a number between {min_value} and {max_value}.")
         except ValueError:
             print("Invalid input. Please enter a valid integer.")
+
+
+def record_game_summary(game_name, difficulty, result):
+    """Records a summary of the game played."""
+    timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    summary = f"{timestamp} | Game: {game_name} | Difficulty: {difficulty} | Result: {'Win' if result else 'Loss'}\n"
+    with open(GAME_RESULTS_FILE, 'a') as file:
+        file.write(summary)
 
 
 def main():
