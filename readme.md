@@ -137,6 +137,9 @@ Navigate to [http://localhost:5000/](http://localhost:5000/) in your web browser
    - `Flask`: For running the score server.
 - **Operating System**: Cross-platform (Windows, macOS, Linux)
 
+## Unit tests
+Unit tests are under /tests folder, to run unit tests run `pytest`
+
 ---
 
 **Enjoy your journey in the World of Games! May the odds be ever in your favor.**
