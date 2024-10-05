@@ -11,8 +11,6 @@ Welcome to the **World of Games: The Epic Journey**! This Python application off
 - [Games Included](#games-included)
 - [Score Management](#score-management)
 - [Requirements](#requirements)
-- [Project Dependencies](#project-dependencies)
-- [License](#license)
 
 ## Overview
 
@@ -37,6 +35,7 @@ world-of-game/
 ├── currency_roulette_game.py   # Currency Roulette Game implementation
 ├── memory_game.py              # Memory Game implementation
 ├── Scores.txt                  # File storing the user's score
+├── GameResutls.txt             # File storing the user's scores between games
 └── README.md                   # Project documentation
 ```
 
@@ -137,10 +136,6 @@ Navigate to [http://localhost:5000/](http://localhost:5000/) in your web browser
 - **Packages**:
    - `Flask`: For running the score server.
 - **Operating System**: Cross-platform (Windows, macOS, Linux)
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ---
 
