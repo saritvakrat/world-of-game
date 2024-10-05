@@ -26,6 +26,8 @@ The application also includes a scoring system that accumulates points based on 
 
 ```
 world-of-game/
+├── tests/                      # folder with all tests files
+├── .github/workflows           # folder with github workflows
 ├── app.py                      # Main application logic
 ├── main.py                     # Entry point to start the game
 ├── utils.py                    # Utility functions and shared variables
