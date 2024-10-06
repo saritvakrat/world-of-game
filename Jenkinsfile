@@ -1,3 +1,5 @@
+properties([pipelineTriggers([pollSCM('@hourly')])])
+
 pipeline {
     agent any
 
