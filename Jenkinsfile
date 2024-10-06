@@ -41,19 +41,26 @@ pipeline {
             }
         }
 
-        stage('Create Python 3.8 Environment') {
-            steps {
-                // Use bash to source the environment and create the Python environment
-                sh '''
-                    bash -c "
-                    source $HOME/miniconda/etc/profile.d/conda.sh && \
-                    conda create -y -n py38 python=3.8 && \
-                    conda activate py38 && \
-                    python --version
-                    "
-                '''
-            }
-        }
+   stage('Create Python 3.8 Environment and Install Dependencies') {
+             steps {
+                 sh '''
+                     bash -c "
+                     source $HOME/miniconda/etc/profile.d/conda.sh && \
+                     conda create -y -n py38 python=3.8 && \
+                     conda activate py38 && \
+                     python --version
+
+                     # Install the dependencies
+                     if [ -f requirements.txt ]; then
+                         pip install -r requirements.txt
+                     else
+                         echo 'No requirements.txt found, installing requests manually...'
+                         pip install requests
+                     fi
+                     "
+                 '''
+             }
+         }
 
         stage('Run Python Script') {
             steps {
