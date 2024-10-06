@@ -1,4 +1,4 @@
-properties([pipelineTriggers([pollSCM('@hourly')])])
+properties([pipelineTriggers([pollSCM('* * * * *')])])
 
 pipeline {
     agent any
@@ -71,7 +71,7 @@ pipeline {
                     bash -c "
                     source $HOME/miniconda/etc/profile.d/conda.sh && \
                     conda activate py38 && \
-                    pytest
+                    pytest --junitxml=$WORKSPACE/report.xml
                     "
                 '''
             }
@@ -89,16 +89,12 @@ pipeline {
 //                 '''
 //             }
 //         }
-
-        stage('Cleanup') {
-            steps {
-                cleanWs()
-            }
-        }
     }
 
     post {
         always {
+            junit '**/report.xml'
+            cleanWs()
             sh 'echo "Cleanup complete"'
         }
     }
