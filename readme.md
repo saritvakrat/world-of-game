@@ -46,7 +46,7 @@ world-of-game/
 1. **Clone the Repository**:
 
    ```bash
-   git clone hgit@github.com:saritvakrat/world-of-game.git
+   git clone git@github.com:saritvakrat/world-of-game.git
    ```
 
 2. **Navigate to the Project Directory**:
