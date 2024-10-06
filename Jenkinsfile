@@ -62,18 +62,31 @@ pipeline {
              }
          }
 
-        stage('Run Python Script') {
+        stage('Run Unit Tests') {
             steps {
-                // Use bash to activate the environment and run the script
+                // Ensure pytest is run in the activated environment
                 sh '''
                     bash -c "
                     source $HOME/miniconda/etc/profile.d/conda.sh && \
                     conda activate py38 && \
-                    python main.py
+                    pytest
                     "
                 '''
             }
         }
+
+//         stage('Run main app Script') {
+//             steps {
+//                 // Use bash to activate the environment and run the script
+//                 sh '''
+//                     bash -c "
+//                     source $HOME/miniconda/etc/profile.d/conda.sh && \
+//                     conda activate py38 && \
+//                     python main.py
+//                     "
+//                 '''
+//             }
+//         }
 
         stage('Cleanup') {
             steps {
