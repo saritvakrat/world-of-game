@@ -2,8 +2,8 @@
 
 import pytest
 from unittest.mock import patch, mock_open
-from score import add_score
-from utils import SCORES_FILE_NAME
+from games_utils.score import add_score
+from games_utils.utils import SCORES_FILE_NAME
 
 
 @patch('score.os.path.exists', return_value=True)

@@ -2,8 +2,8 @@
 
 import pytest
 from unittest.mock import patch, mock_open
-from main_score import app
-from utils import SCORES_FILE_NAME, GAME_RESULTS_FILE
+from games_utils.main_score import app
+from games_utils.utils import SCORES_FILE_NAME, GAME_RESULTS_FILE
 
 
 @pytest.fixture

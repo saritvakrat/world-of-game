@@ -1,7 +1,7 @@
 # tests/test_memory_game.py
 
 from unittest.mock import patch
-from memory_game import generate_sequence, is_list_equal, play
+from games.memory_game import generate_sequence, is_list_equal, play
 
 
 def test_generate_sequence_length():

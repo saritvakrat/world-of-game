@@ -2,7 +2,7 @@
 
 import pytest
 from unittest.mock import patch
-from currency_roulette_game import (
+from games.currency_roulette_game import (
     get_exchange_rate,
     get_money_interval,
     get_guess_from_user,

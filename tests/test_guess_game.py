@@ -2,8 +2,8 @@
 
 import pytest
 from unittest.mock import patch
-from guess_game import generate_number, get_guess_from_user, compare_results, play
-from utils import BAD_RETURN_CODE
+from games.guess_game import generate_number, get_guess_from_user, compare_results, play
+from games_utils.utils import BAD_RETURN_CODE
 
 
 def test_generate_number_range():
