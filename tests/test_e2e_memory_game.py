@@ -1,15 +1,19 @@
 # tests/memory_e2e.py
 
-import pytest
-import pexpect
 import os
+
+import pexpect
+import pytest
 
 
 # Full E2E test that fetches the user input and validates the answers
 @pytest.mark.skipif(os.name == 'nt', reason="Requires pexpect which is not supported on Windows.")
 def test_memory_game_win():
     # Start the application
-    child = pexpect.spawn('python app.py')
+    # Determine the project root dynamically, assuming this script is located in the tests folder
+    project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+    app_path = os.path.join(project_root, 'games_utils', 'app.py')
+    child = pexpect.spawn(f'python {app_path}')
 
     child.expect("Please enter your name: ")
     child.sendline("TestUser")
@@ -35,7 +39,10 @@ def test_memory_game_win():
 
 
 def test_memory_game_loss():
-    child = pexpect.spawn('python app.py')
+    # Determine the project root dynamically, assuming this script is located in the tests folder
+    project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+    app_path = os.path.join(project_root, 'games_utils', 'app.py')
+    child = pexpect.spawn(f'python {app_path}')
 
     child.expect("Please enter your name: ")
     child.sendline("TestUser")
@@ -60,3 +67,4 @@ def test_memory_game_loss():
     child.expect("Sorry, you lost. Better luck next time!")
 
     child.terminate()
+

@@ -1,9 +1,10 @@
 # tests/conftest.py
 
-import pytest
-from unittest.mock import patch, mock_open
-import sys
 import os
+import sys
+from unittest.mock import patch
+
+import pytest
 
 # Add the parent directory to sys.path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))

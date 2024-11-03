@@ -1,6 +1,7 @@
 # guess_game.py
 
 import random
+
 from games_utils.utils import BAD_RETURN_CODE
 
 

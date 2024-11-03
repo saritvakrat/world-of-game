@@ -1,7 +1,9 @@
 # currency_roulette_game.py
 
 import random
+
 import requests
+
 from games_utils.utils import BAD_RETURN_CODE
 
 

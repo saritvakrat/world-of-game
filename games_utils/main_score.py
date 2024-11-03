@@ -1,8 +1,10 @@
 # main_score.py
 
-from flask import Flask
-from games_utils.utils import SCORES_FILE_NAME, GAME_RESULTS_FILE
 import os
+
+from flask import Flask
+
+from games_utils.utils import SCORES_FILE_NAME, GAME_RESULTS_FILE
 
 app = Flask(__name__)
 

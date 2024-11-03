@@ -1,6 +1,7 @@
 # score.py
 
 import os
+
 from games_utils.utils import SCORES_FILE_NAME
 
 
