@@ -1,7 +1,7 @@
 # guess_game.py
 
 import random
-from utils import BAD_RETURN_CODE
+from games_utils.utils import BAD_RETURN_CODE
 
 
 def generate_number(difficulty):

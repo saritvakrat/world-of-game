@@ -2,7 +2,7 @@
 
 import random
 import time
-from utils import screen_cleaner
+from games_utils.utils import screen_cleaner
 
 
 def generate_sequence(difficulty):

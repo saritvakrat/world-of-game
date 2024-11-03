@@ -2,7 +2,7 @@
 
 import random
 import requests
-from utils import BAD_RETURN_CODE
+from games_utils.utils import BAD_RETURN_CODE
 
 
 def get_exchange_rate():

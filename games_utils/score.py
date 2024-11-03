@@ -1,7 +1,7 @@
 # score.py
 
 import os
-from utils import SCORES_FILE_NAME
+from games_utils.utils import SCORES_FILE_NAME
 
 
 def add_score(difficulty):

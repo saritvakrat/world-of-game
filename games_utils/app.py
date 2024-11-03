@@ -1,12 +1,12 @@
 # app.py
 
-from guess_game import play as play_guess_game
-from currency_roulette_game import play as play_currency_roulette
-from memory_game import play as play_memory_game
-from score import add_score
+from games.guess_game import play as play_guess_game
+from games.currency_roulette_game import play as play_currency_roulette
+from games.memory_game import play as play_memory_game
+from games_utils.score import add_score
 from threading import Thread
-from main_score import app as flask_app
-from utils import screen_cleaner, SCORES_FILE_NAME, GAME_RESULTS_FILE
+from games_utils.main_score import app as flask_app
+from games_utils.utils import screen_cleaner, SCORES_FILE_NAME, GAME_RESULTS_FILE
 from datetime import datetime
 
 
